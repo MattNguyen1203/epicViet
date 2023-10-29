@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+    />
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- Demo styles -->
+    <style>
+      :root {
+        font-size: 1vw;
+      }
+      html,
+      body {
+        position: relative;
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: white;
+      }
+      .slideHome {
+        width: 74.875rem;
+        height: fit-content;
+      }
+
+      .slideHome .swiper-slide {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        user-select: none;
+      }
+
+      /* img & price */
+      .slideHome .swiper-slide__img {
+        width: 100%;
+        height: 23.9375rem;
+        position: relative;
+      }
+      .slideHome .swiper-slide .img-main {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .slideHome .swiper-slide .zalo {
+        display: block;
+        width: 3.5rem;
+        height: 3.5rem;
+        object-fit: contain;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+
+      .slideHome .swiper-slide__price {
+        display: flex;
+        position: absolute;
+        bottom: 0.97rem;
+        left: 1.03rem;
+        padding: 0.72rem 1.3rem;
+        background: white;
+        line-height: 1.375rem;
+        letter-spacing: 0.0125rem;
+        border-radius: 4.32606rem;
+      }
+
+      .slideHome .swiper-slide__price div:nth-child(1) {
+        color: #e7ad0f;
+        font-size: 1rem;
+        font-weight: 700;
+        margin-right: 0.58rem;
+      }
+      .slideHome .swiper-slide__price div:nth-child(2) {
+        color: #898989;
+        font-size: 0.75rem;
+        font-weight: 500;
+        text-decoration-line: line-through;
+      }
+
+      /* info*/
+      .slideHome .swiper-slide__info {
+        padding: 1rem 1.25rem;
+      }
+
+      .slideHome .swiper-slide__info .swiper-slide__info-title {
+        color: #2e2e2e;
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1.375rem;
+        letter-spacing: 0.0125rem;
+      }
+      .slideHome .swiper-slide__info .swiper-slide__info-detail {
+        display: flex;
+        align-items: center;
+      }
+
+      .slideHome .swiper-slide__info-detail .swiper-slide__info-header {
+        margin: 0.25rem 0.38rem;
+        color: #727272;
+        font-size: 0.875rem;
+        font-weight: 400;
+        line-height: 1.25rem;
+        letter-spacing: 0.00875rem;
+      }
+
+      .slideHome .swiper-slide__info-detail svg {
+        width: 1rem;
+        height: 1rem;
+      }
+
+      .slideHome .swiper-slide__info-detail .swiper-slide__info-content {
+        color: #b4870b;
+        font-size: 0.875rem;
+        font-weight: 600;
+        line-height: 1.25rem;
+        letter-spacing: 0.00875rem;
+      }
+
+      @media (min-width: 768px) and (max-width: 1024px) {
+        :root {
+          font-size: 1.5vw;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Swiper -->
+    <section class="slideHome">
+      <div class="swiper mySwiper homeSlideTour">
+        <div class="swiper-wrapper">
+          <!-- item 1 -->
+          <div class="swiper-slide">
+            <div class="swiper-slide__img">
+              <img src="./asset/image.svg" alt="" class="img-main" />
+              <div class="swiper-slide__price">
+                <div>2.900.000đ</div>
+                <div>3.900.000đ</div>
+              </div>
+              <img src="/asset/zalo.svg" alt="" class="zalo" />
+            </div>
+            <div class="swiper-slide__info">
+              <!-- title -->
+              <h3 class="swiper-slide__info-title">
+                Tour trải nghiệm ngủ bản Đồng Văn - Du Già
+              </h3>
+
+              <!-- thời gian -->
+              <div class="swiper-slide__info-detail">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                >
+                  <circle cx="8" cy="7.94922" r="6.86719" fill="#2E2E2E" />
+                  <path
+                    d="M8 2C6.81331 2 5.65328 2.35189 4.66658 3.01118C3.67989 3.67047 2.91085 4.60754 2.45673 5.7039C2.0026 6.80025 1.88378 8.00665 2.11529 9.17054C2.3468 10.3344 2.91825 11.4035 3.75736 12.2426C4.59648 13.0818 5.66557 13.6532 6.82946 13.8847C7.99335 14.1162 9.19974 13.9974 10.2961 13.5433C11.3925 13.0891 12.3295 12.3201 12.9888 11.3334C13.6481 10.3467 14 9.18669 14 8C13.9983 6.40921 13.3657 4.88405 12.2408 3.7592C11.1159 2.63434 9.59079 2.00166 8 2ZM10.7314 10.0686C10.6782 10.1359 10.6105 10.1905 10.5334 10.2281C10.4562 10.2656 10.3716 10.2854 10.2857 10.2857C10.1565 10.2867 10.0311 10.2422 9.93143 10.16L7.64572 8.44571C7.57837 8.3925 7.52388 8.32479 7.48629 8.24763C7.4487 8.17047 7.42897 8.08583 7.42857 8V4C7.42857 3.84845 7.48878 3.7031 7.59594 3.59594C7.7031 3.48878 7.84845 3.42857 8 3.42857C8.15155 3.42857 8.2969 3.48878 8.40406 3.59594C8.51123 3.7031 8.57143 3.84845 8.57143 4V7.72571L10.64 9.26857C10.6995 9.31442 10.7491 9.37173 10.786 9.43712C10.8229 9.50251 10.8463 9.57464 10.8549 9.64924C10.8634 9.72384 10.8569 9.79939 10.8357 9.87142C10.8145 9.94345 10.779 10.0105 10.7314 10.0686Z"
+                    fill="#FEBE10"
+                  />
+                  <path
+                    d="M8 -0.0507812C6.41775 -0.0507813 4.87103 0.41841 3.55544 1.29746C2.23985 2.17651 1.21447 3.42594 0.608967 4.88775C0.00346635 6.34956 -0.15496 7.95809 0.153721 9.50994C0.462403 11.0618 1.22433 12.4872 2.34315 13.6061C3.46197 14.7249 4.88743 15.4868 6.43928 15.7955C7.99113 16.1042 9.59966 15.9457 11.0615 15.3402C12.5233 14.7347 13.7727 13.7094 14.6518 12.3938C15.5308 11.0782 16 9.53147 16 7.94922C15.9975 5.82826 15.1538 3.79491 13.654 2.29517C12.1543 0.79543 10.121 -0.0482407 8 -0.0507812ZM8 14.6516C6.67439 14.6516 5.37855 14.2585 4.27635 13.5221C3.17414 12.7856 2.31508 11.7388 1.80779 10.5141C1.3005 9.28941 1.16777 7.94178 1.42639 6.64164C1.685 5.34151 2.32334 4.14725 3.26069 3.2099C4.19804 2.27256 5.39229 1.63422 6.69243 1.3756C7.99257 1.11699 9.34019 1.24972 10.5649 1.75701C11.7896 2.2643 12.8364 3.12336 13.5728 4.22556C14.3093 5.32777 14.7024 6.62361 14.7024 7.94922C14.7007 9.72628 13.994 11.4301 12.7374 12.6867C11.4809 13.9432 9.77707 14.6499 8 14.6516Z"
+                    fill="#2E2E2E"
+                  />
+                </svg>
+                <div class="swiper-slide__info-header">Thời gian:</div>
+                <div class="swiper-slide__info-content">3 Ngày / 3 Đêm</div>
+              </div>
+
+              <!-- Địa điểm -->
+              <div class="swiper-slide__info-detail">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="13"
+                  height="16"
+                  viewBox="0 0 13 16"
+                  fill="none"
+                >
+                  <path
+                    d="M9.2182 2.43127C10.1496 2.72573 10.1496 4.04381 9.2182 4.33826L4.5918 5.80078L4.5918 0.96875L9.2182 2.43127Z"
+                    fill="#FEBE10"
+                  />
+                  <ellipse
+                    cx="4.00391"
+                    cy="13.2695"
+                    rx="3.85547"
+                    ry="2.73047"
+                    fill="#2E2E2E"
+                  />
+                  <rect
+                    x="3.42969"
+                    width="1.16016"
+                    height="13.7305"
+                    rx="0.580078"
+                    fill="#FEBE10"
+                  />
+                </svg>
+
+                <div class="swiper-slide__info-header">Điểm đón:</div>
+                <div class="swiper-slide__info-content">
+                  Trung tâm Hà Nội / Sân bay Nội Bài
+                </div>
+              </div>
+
+              <!-- Lịch khởi hành -->
+
+              <div class="swiper-slide__info-detail">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="16"
+                  viewBox="0 0 14 16"
+                  fill="none"
+                >
+                  <path
+                    d="M11.6956 1.94797C9.09825 -0.649324 4.9026 -0.649324 2.3386 1.94797C-0.258702 4.54527 -0.258702 8.70759 2.3386 11.3049L6.29333 15.2879C6.68344 15.6808 7.31855 15.6819 7.71005 15.2904L11.6622 11.3382C14.2596 8.7409 14.2596 4.54527 11.6956 1.94797Z"
+                    fill="#2E2E2E"
+                  />
+                  <path
+                    d="M9.17943 9.11832C8.00056 10.2939 6.1099 10.2939 4.93103 9.11832C3.75216 7.94272 3.75216 6.0573 4.93103 4.8817C6.1099 3.7061 8.00056 3.7061 9.17943 4.8817C10.3361 6.0573 10.3361 7.96491 9.17943 9.11832Z"
+                    fill="#FEBE10"
+                  />
+                </svg>
+
+                <div class="swiper-slide__info-header">Lịch khởi hành:</div>
+                <div class="swiper-slide__info-content">Hàng ngày</div>
+              </div>
+            </div>
+          </div>
+          <!-- item 1 -->
+          <div class="swiper-slide">
+            <div class="swiper-slide__img">
+              <img src="./asset/image.svg" alt="" class="img-main" />
+              <div class="swiper-slide__price">
+                <div>2.900.000đ</div>
+                <div>3.900.000đ</div>
+              </div>
+              <img src="/asset/zalo.svg" alt="" class="zalo" />
+            </div>
+            <div class="swiper-slide__info">
+              <!-- title -->
+              <h3 class="swiper-slide__info-title">
+                Tour trải nghiệm ngủ bản Đồng Văn - Du Già
+              </h3>
+
+              <!-- thời gian -->
+              <div class="swiper-slide__info-detail">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                >
+                  <circle cx="8" cy="7.94922" r="6.86719" fill="#2E2E2E" />
+                  <path
+                    d="M8 2C6.81331 2 5.65328 2.35189 4.66658 3.01118C3.67989 3.67047 2.91085 4.60754 2.45673 5.7039C2.0026 6.80025 1.88378 8.00665 2.11529 9.17054C2.3468 10.3344 2.91825 11.4035 3.75736 12.2426C4.59648 13.0818 5.66557 13.6532 6.82946 13.8847C7.99335 14.1162 9.19974 13.9974 10.2961 13.5433C11.3925 13.0891 12.3295 12.3201 12.9888 11.3334C13.6481 10.3467 14 9.18669 14 8C13.9983 6.40921 13.3657 4.88405 12.2408 3.7592C11.1159 2.63434 9.59079 2.00166 8 2ZM10.7314 10.0686C10.6782 10.1359 10.6105 10.1905 10.5334 10.2281C10.4562 10.2656 10.3716 10.2854 10.2857 10.2857C10.1565 10.2867 10.0311 10.2422 9.93143 10.16L7.64572 8.44571C7.57837 8.3925 7.52388 8.32479 7.48629 8.24763C7.4487 8.17047 7.42897 8.08583 7.42857 8V4C7.42857 3.84845 7.48878 3.7031 7.59594 3.59594C7.7031 3.48878 7.84845 3.42857 8 3.42857C8.15155 3.42857 8.2969 3.48878 8.40406 3.59594C8.51123 3.7031 8.57143 3.84845 8.57143 4V7.72571L10.64 9.26857C10.6995 9.31442 10.7491 9.37173 10.786 9.43712C10.8229 9.50251 10.8463 9.57464 10.8549 9.64924C10.8634 9.72384 10.8569 9.79939 10.8357 9.87142C10.8145 9.94345 10.779 10.0105 10.7314 10.0686Z"
+                    fill="#FEBE10"
+                  />
+                  <path
+                    d="M8 -0.0507812C6.41775 -0.0507813 4.87103 0.41841 3.55544 1.29746C2.23985 2.17651 1.21447 3.42594 0.608967 4.88775C0.00346635 6.34956 -0.15496 7.95809 0.153721 9.50994C0.462403 11.0618 1.22433 12.4872 2.34315 13.6061C3.46197 14.7249 4.88743 15.4868 6.43928 15.7955C7.99113 16.1042 9.59966 15.9457 11.0615 15.3402C12.5233 14.7347 13.7727 13.7094 14.6518 12.3938C15.5308 11.0782 16 9.53147 16 7.94922C15.9975 5.82826 15.1538 3.79491 13.654 2.29517C12.1543 0.79543 10.121 -0.0482407 8 -0.0507812ZM8 14.6516C6.67439 14.6516 5.37855 14.2585 4.27635 13.5221C3.17414 12.7856 2.31508 11.7388 1.80779 10.5141C1.3005 9.28941 1.16777 7.94178 1.42639 6.64164C1.685 5.34151 2.32334 4.14725 3.26069 3.2099C4.19804 2.27256 5.39229 1.63422 6.69243 1.3756C7.99257 1.11699 9.34019 1.24972 10.5649 1.75701C11.7896 2.2643 12.8364 3.12336 13.5728 4.22556C14.3093 5.32777 14.7024 6.62361 14.7024 7.94922C14.7007 9.72628 13.994 11.4301 12.7374 12.6867C11.4809 13.9432 9.77707 14.6499 8 14.6516Z"
+                    fill="#2E2E2E"
+                  />
+                </svg>
+                <div class="swiper-slide__info-header">Thời gian:</div>
+                <div class="swiper-slide__info-content">3 Ngày / 3 Đêm</div>
+              </div>
+
+              <!-- Địa điểm -->
+              <div class="swiper-slide__info-detail">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="13"
+                  height="16"
+                  viewBox="0 0 13 16"
+                  fill="none"
+                >
+                  <path
+                    d="M9.2182 2.43127C10.1496 2.72573 10.1496 4.04381 9.2182 4.33826L4.5918 5.80078L4.5918 0.96875L9.2182 2.43127Z"
+                    fill="#FEBE10"
+                  />
+                  <ellipse
+                    cx="4.00391"
+                    cy="13.2695"
+                    rx="3.85547"
+                    ry="2.73047"
+                    fill="#2E2E2E"
+                  />
+                  <rect
+                    x="3.42969"
+                    width="1.16016"
+                    height="13.7305"
+                    rx="0.580078"
+                    fill="#FEBE10"
+                  />
+                </svg>
+
+                <div class="swiper-slide__info-header">Điểm đón:</div>
+                <div class="swiper-slide__info-content">
+                  Trung tâm Hà Nội / Sân bay Nội Bài
+                </div>
+              </div>
+
+              <!-- Lịch khởi hành -->
+
+              <div class="swiper-slide__info-detail">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="16"
+                  viewBox="0 0 14 16"
+                  fill="none"
+                >
+                  <path
+                    d="M11.6956 1.94797C9.09825 -0.649324 4.9026 -0.649324 2.3386 1.94797C-0.258702 4.54527 -0.258702 8.70759 2.3386 11.3049L6.29333 15.2879C6.68344 15.6808 7.31855 15.6819 7.71005 15.2904L11.6622 11.3382C14.2596 8.7409 14.2596 4.54527 11.6956 1.94797Z"
+                    fill="#2E2E2E"
+                  />
+                  <path
+                    d="M9.17943 9.11832C8.00056 10.2939 6.1099 10.2939 4.93103 9.11832C3.75216 7.94272 3.75216 6.0573 4.93103 4.8817C6.1099 3.7061 8.00056 3.7061 9.17943 4.8817C10.3361 6.0573 10.3361 7.96491 9.17943 9.11832Z"
+                    fill="#FEBE10"
+                  />
+                </svg>
+
+                <div class="swiper-slide__info-header">Lịch khởi hành:</div>
+                <div class="swiper-slide__info-content">Hàng ngày</div>
+              </div>
+            </div>
+          </div>
+          <!-- item 1 -->
+          <div class="swiper-slide">
+            <div class="swiper-slide__img">
+              <img src="./asset/image.svg" alt="" class="img-main" />
+              <div class="swiper-slide__price">
+                <div>2.900.000đ</div>
+                <div>3.900.000đ</div>
+              </div>
+              <img src="/asset/zalo.svg" alt="" class="zalo" />
+            </div>
+            <div class="swiper-slide__info">
+              <!-- title -->
+              <h3 class="swiper-slide__info-title">
+                Tour trải nghiệm ngủ bản Đồng Văn - Du Già
+              </h3>
+
+              <!-- thời gian -->
+              <div class="swiper-slide__info-detail">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                >
+                  <circle cx="8" cy="7.94922" r="6.86719" fill="#2E2E2E" />
+                  <path
+                    d="M8 2C6.81331 2 5.65328 2.35189 4.66658 3.01118C3.67989 3.67047 2.91085 4.60754 2.45673 5.7039C2.0026 6.80025 1.88378 8.00665 2.11529 9.17054C2.3468 10.3344 2.91825 11.4035 3.75736 12.2426C4.59648 13.0818 5.66557 13.6532 6.82946 13.8847C7.99335 14.1162 9.19974 13.9974 10.2961 13.5433C11.3925 13.0891 12.3295 12.3201 12.9888 11.3334C13.6481 10.3467 14 9.18669 14 8C13.9983 6.40921 13.3657 4.88405 12.2408 3.7592C11.1159 2.63434 9.59079 2.00166 8 2ZM10.7314 10.0686C10.6782 10.1359 10.6105 10.1905 10.5334 10.2281C10.4562 10.2656 10.3716 10.2854 10.2857 10.2857C10.1565 10.2867 10.0311 10.2422 9.93143 10.16L7.64572 8.44571C7.57837 8.3925 7.52388 8.32479 7.48629 8.24763C7.4487 8.17047 7.42897 8.08583 7.42857 8V4C7.42857 3.84845 7.48878 3.7031 7.59594 3.59594C7.7031 3.48878 7.84845 3.42857 8 3.42857C8.15155 3.42857 8.2969 3.48878 8.40406 3.59594C8.51123 3.7031 8.57143 3.84845 8.57143 4V7.72571L10.64 9.26857C10.6995 9.31442 10.7491 9.37173 10.786 9.43712C10.8229 9.50251 10.8463 9.57464 10.8549 9.64924C10.8634 9.72384 10.8569 9.79939 10.8357 9.87142C10.8145 9.94345 10.779 10.0105 10.7314 10.0686Z"
+                    fill="#FEBE10"
+                  />
+                  <path
+                    d="M8 -0.0507812C6.41775 -0.0507813 4.87103 0.41841 3.55544 1.29746C2.23985 2.17651 1.21447 3.42594 0.608967 4.88775C0.00346635 6.34956 -0.15496 7.95809 0.153721 9.50994C0.462403 11.0618 1.22433 12.4872 2.34315 13.6061C3.46197 14.7249 4.88743 15.4868 6.43928 15.7955C7.99113 16.1042 9.59966 15.9457 11.0615 15.3402C12.5233 14.7347 13.7727 13.7094 14.6518 12.3938C15.5308 11.0782 16 9.53147 16 7.94922C15.9975 5.82826 15.1538 3.79491 13.654 2.29517C12.1543 0.79543 10.121 -0.0482407 8 -0.0507812ZM8 14.6516C6.67439 14.6516 5.37855 14.2585 4.27635 13.5221C3.17414 12.7856 2.31508 11.7388 1.80779 10.5141C1.3005 9.28941 1.16777 7.94178 1.42639 6.64164C1.685 5.34151 2.32334 4.14725 3.26069 3.2099C4.19804 2.27256 5.39229 1.63422 6.69243 1.3756C7.99257 1.11699 9.34019 1.24972 10.5649 1.75701C11.7896 2.2643 12.8364 3.12336 13.5728 4.22556C14.3093 5.32777 14.7024 6.62361 14.7024 7.94922C14.7007 9.72628 13.994 11.4301 12.7374 12.6867C11.4809 13.9432 9.77707 14.6499 8 14.6516Z"
+                    fill="#2E2E2E"
+                  />
+                </svg>
+                <div class="swiper-slide__info-header">Thời gian:</div>
+                <div class="swiper-slide__info-content">3 Ngày / 3 Đêm</div>
+              </div>
+
+              <!-- Địa điểm -->
+              <div class="swiper-slide__info-detail">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="13"
+                  height="16"
+                  viewBox="0 0 13 16"
+                  fill="none"
+                >
+                  <path
+                    d="M9.2182 2.43127C10.1496 2.72573 10.1496 4.04381 9.2182 4.33826L4.5918 5.80078L4.5918 0.96875L9.2182 2.43127Z"
+                    fill="#FEBE10"
+                  />
+                  <ellipse
+                    cx="4.00391"
+                    cy="13.2695"
+                    rx="3.85547"
+                    ry="2.73047"
+                    fill="#2E2E2E"
+                  />
+                  <rect
+                    x="3.42969"
+                    width="1.16016"
+                    height="13.7305"
+                    rx="0.580078"
+                    fill="#FEBE10"
+                  />
+                </svg>
+
+                <div class="swiper-slide__info-header">Điểm đón:</div>
+                <div class="swiper-slide__info-content">
+                  Trung tâm Hà Nội / Sân bay Nội Bài
+                </div>
+              </div>
+
+              <!-- Lịch khởi hành -->
+
+              <div class="swiper-slide__info-detail">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="16"
+                  viewBox="0 0 14 16"
+                  fill="none"
+                >
+                  <path
+                    d="M11.6956 1.94797C9.09825 -0.649324 4.9026 -0.649324 2.3386 1.94797C-0.258702 4.54527 -0.258702 8.70759 2.3386 11.3049L6.29333 15.2879C6.68344 15.6808 7.31855 15.6819 7.71005 15.2904L11.6622 11.3382C14.2596 8.7409 14.2596 4.54527 11.6956 1.94797Z"
+                    fill="#2E2E2E"
+                  />
+                  <path
+                    d="M9.17943 9.11832C8.00056 10.2939 6.1099 10.2939 4.93103 9.11832C3.75216 7.94272 3.75216 6.0573 4.93103 4.8817C6.1099 3.7061 8.00056 3.7061 9.17943 4.8817C10.3361 6.0573 10.3361 7.96491 9.17943 9.11832Z"
+                    fill="#FEBE10"
+                  />
+                </svg>
+
+                <div class="swiper-slide__info-header">Lịch khởi hành:</div>
+                <div class="swiper-slide__info-content">Hàng ngày</div>
+              </div>
+            </div>
+          </div>
+          <!-- item 1 -->
+          <div class="swiper-slide">
+            <div class="swiper-slide__img">
+              <img src="./asset/image.svg" alt="" class="img-main" />
+              <div class="swiper-slide__price">
+                <div>2.900.000đ</div>
+                <div>3.900.000đ</div>
+              </div>
+              <img src="/asset/zalo.svg" alt="" class="zalo" />
+            </div>
+            <div class="swiper-slide__info">
+              <!-- title -->
+              <h3 class="swiper-slide__info-title">
+                Tour trải nghiệm ngủ bản Đồng Văn - Du Già
+              </h3>
+
+              <!-- thời gian -->
+              <div class="swiper-slide__info-detail">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                >
+                  <circle cx="8" cy="7.94922" r="6.86719" fill="#2E2E2E" />
+                  <path
+                    d="M8 2C6.81331 2 5.65328 2.35189 4.66658 3.01118C3.67989 3.67047 2.91085 4.60754 2.45673 5.7039C2.0026 6.80025 1.88378 8.00665 2.11529 9.17054C2.3468 10.3344 2.91825 11.4035 3.75736 12.2426C4.59648 13.0818 5.66557 13.6532 6.82946 13.8847C7.99335 14.1162 9.19974 13.9974 10.2961 13.5433C11.3925 13.0891 12.3295 12.3201 12.9888 11.3334C13.6481 10.3467 14 9.18669 14 8C13.9983 6.40921 13.3657 4.88405 12.2408 3.7592C11.1159 2.63434 9.59079 2.00166 8 2ZM10.7314 10.0686C10.6782 10.1359 10.6105 10.1905 10.5334 10.2281C10.4562 10.2656 10.3716 10.2854 10.2857 10.2857C10.1565 10.2867 10.0311 10.2422 9.93143 10.16L7.64572 8.44571C7.57837 8.3925 7.52388 8.32479 7.48629 8.24763C7.4487 8.17047 7.42897 8.08583 7.42857 8V4C7.42857 3.84845 7.48878 3.7031 7.59594 3.59594C7.7031 3.48878 7.84845 3.42857 8 3.42857C8.15155 3.42857 8.2969 3.48878 8.40406 3.59594C8.51123 3.7031 8.57143 3.84845 8.57143 4V7.72571L10.64 9.26857C10.6995 9.31442 10.7491 9.37173 10.786 9.43712C10.8229 9.50251 10.8463 9.57464 10.8549 9.64924C10.8634 9.72384 10.8569 9.79939 10.8357 9.87142C10.8145 9.94345 10.779 10.0105 10.7314 10.0686Z"
+                    fill="#FEBE10"
+                  />
+                  <path
+                    d="M8 -0.0507812C6.41775 -0.0507813 4.87103 0.41841 3.55544 1.29746C2.23985 2.17651 1.21447 3.42594 0.608967 4.88775C0.00346635 6.34956 -0.15496 7.95809 0.153721 9.50994C0.462403 11.0618 1.22433 12.4872 2.34315 13.6061C3.46197 14.7249 4.88743 15.4868 6.43928 15.7955C7.99113 16.1042 9.59966 15.9457 11.0615 15.3402C12.5233 14.7347 13.7727 13.7094 14.6518 12.3938C15.5308 11.0782 16 9.53147 16 7.94922C15.9975 5.82826 15.1538 3.79491 13.654 2.29517C12.1543 0.79543 10.121 -0.0482407 8 -0.0507812ZM8 14.6516C6.67439 14.6516 5.37855 14.2585 4.27635 13.5221C3.17414 12.7856 2.31508 11.7388 1.80779 10.5141C1.3005 9.28941 1.16777 7.94178 1.42639 6.64164C1.685 5.34151 2.32334 4.14725 3.26069 3.2099C4.19804 2.27256 5.39229 1.63422 6.69243 1.3756C7.99257 1.11699 9.34019 1.24972 10.5649 1.75701C11.7896 2.2643 12.8364 3.12336 13.5728 4.22556C14.3093 5.32777 14.7024 6.62361 14.7024 7.94922C14.7007 9.72628 13.994 11.4301 12.7374 12.6867C11.4809 13.9432 9.77707 14.6499 8 14.6516Z"
+                    fill="#2E2E2E"
+                  />
+                </svg>
+                <div class="swiper-slide__info-header">Thời gian:</div>
+                <div class="swiper-slide__info-content">3 Ngày / 3 Đêm</div>
+              </div>
+
+              <!-- Địa điểm -->
+              <div class="swiper-slide__info-detail">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="13"
+                  height="16"
+                  viewBox="0 0 13 16"
+                  fill="none"
+                >
+                  <path
+                    d="M9.2182 2.43127C10.1496 2.72573 10.1496 4.04381 9.2182 4.33826L4.5918 5.80078L4.5918 0.96875L9.2182 2.43127Z"
+                    fill="#FEBE10"
+                  />
+                  <ellipse
+                    cx="4.00391"
+                    cy="13.2695"
+                    rx="3.85547"
+                    ry="2.73047"
+                    fill="#2E2E2E"
+                  />
+                  <rect
+                    x="3.42969"
+                    width="1.16016"
+                    height="13.7305"
+                    rx="0.580078"
+                    fill="#FEBE10"
+                  />
+                </svg>
+
+                <div class="swiper-slide__info-header">Điểm đón:</div>
+                <div class="swiper-slide__info-content">
+                  Trung tâm Hà Nội / Sân bay Nội Bài
+                </div>
+              </div>
+
+              <!-- Lịch khởi hành -->
+
+              <div class="swiper-slide__info-detail">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="16"
+                  viewBox="0 0 14 16"
+                  fill="none"
+                >
+                  <path
+                    d="M11.6956 1.94797C9.09825 -0.649324 4.9026 -0.649324 2.3386 1.94797C-0.258702 4.54527 -0.258702 8.70759 2.3386 11.3049L6.29333 15.2879C6.68344 15.6808 7.31855 15.6819 7.71005 15.2904L11.6622 11.3382C14.2596 8.7409 14.2596 4.54527 11.6956 1.94797Z"
+                    fill="#2E2E2E"
+                  />
+                  <path
+                    d="M9.17943 9.11832C8.00056 10.2939 6.1099 10.2939 4.93103 9.11832C3.75216 7.94272 3.75216 6.0573 4.93103 4.8817C6.1099 3.7061 8.00056 3.7061 9.17943 4.8817C10.3361 6.0573 10.3361 7.96491 9.17943 9.11832Z"
+                    fill="#FEBE10"
+                  />
+                </svg>
+
+                <div class="swiper-slide__info-header">Lịch khởi hành:</div>
+                <div class="swiper-slide__info-content">Hàng ngày</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".homeSlideTour", {
+        slidesPerView: 2,
+        spaceBetween: 24,
+      });
+    </script>
+  </body>
+</html>
